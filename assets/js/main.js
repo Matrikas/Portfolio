@@ -311,38 +311,55 @@ document.addEventListener('DOMContentLoaded', () => {
             // Gather form data
             const formData = new FormData(contactForm);
             
-            // Submit data to contact.php
-            fetch('contact.php', {
+            // Submit data to formspree endpoint to send email
+            fetch('https://formspree.io/f/xwvzdard', {
                 method: 'POST',
-                body: formData
+                body: formData,
+                headers: {
+                    'Accept': 'application/json'
+                }
             })
-            .then(res => res.json())
+            .then(res => {
+                if (!res.ok) {
+                    return res.text().then(text => {
+                        throw new Error(text || 'Server responded with an error');
+                    });
+                }
+                // Read as text first to avoid JSON parse errors bubbling unintentionally
+                return res.text().then(txt => {
+                    try {
+                        return JSON.parse(txt);
+                    } catch (e) {
+                        throw new Error('Invalid JSON response from server');
+                    }
+                });
+            })
             .then(data => {
                 // Clear response formatting
                 formResponse.classList.remove('success', 'error');
-                formResponse.textContent = data.message;
-                
+                formResponse.textContent = data.message || 'Response received.';
+
                 if (data.success) {
                     formResponse.classList.add('success');
                     contactForm.reset(); // clear inputs
                 } else {
                     formResponse.classList.add('error');
                 }
-                
+
                 // Show toast container
                 formResponse.style.display = 'block';
             })
             .catch(err => {
                 formResponse.classList.remove('success', 'error');
                 formResponse.classList.add('error');
-                formResponse.textContent = "Oops! Something went wrong while sending. Please try again or reach out directly.";
+                formResponse.textContent = "Oops! Something went wrong while sending. Please try again or reach out directly. (" + err.message + ")";
                 formResponse.style.display = 'block';
             })
             .finally(() => {
                 // Restore button state
                 submitBtn.disabled = false;
                 submitBtn.innerHTML = originalBtnHtml;
-                
+
                 // Scroll to message feedback
                 formResponse.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
             });
