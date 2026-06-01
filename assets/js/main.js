@@ -96,35 +96,6 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     // ==========================================================================
-    // 3. 3D TILT EFFECT ON CARDS
-    // ==========================================================================
-    const tiltElements = document.querySelectorAll('.polaroid-card, .bento-card, .stat-card, .test-card');
-    
-    tiltElements.forEach(card => {
-        card.addEventListener('mousemove', (e) => {
-            const rect = card.getBoundingClientRect();
-            const x = e.clientX - rect.left; // x position within element
-            const y = e.clientY - rect.top;  // y position within element
-            
-            const centerX = rect.width / 2;
-            const centerY = rect.height / 2;
-            
-            // Max degrees to tilt
-            const maxTilt = 8;
-            
-            // Calculate tilt angle based on mouse distance from center
-            const tiltX = ((centerY - y) / centerY) * maxTilt;
-            const tiltY = ((x - centerX) / centerX) * maxTilt;
-            
-            card.style.transform = `perspective(1000px) rotateX(${tiltX}deg) rotateY(${tiltY}deg) scale(1.02)`;
-        });
-        
-        card.addEventListener('mouseleave', () => {
-            card.style.transform = `perspective(1000px) rotateX(0deg) rotateY(0deg) scale(1)`;
-        });
-    });
-
-    // ==========================================================================
     // 4. BENTO GRID PROJECT FILTERING
     // ==========================================================================
     const filterButtons = document.querySelectorAll('.filter-btn');
@@ -293,17 +264,137 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     // ==========================================================================
-    // 9. SECURE AJAX FORM SUBMISSION HANDLER
+    // 8.5 REAL-TIME FORM VALIDATION WITH REGEX & ERROR MESSAGES
     // ==========================================================================
     const contactForm = document.querySelector('.contact-form');
     const formResponse = document.querySelector('.form-response');
+    const nameInput = document.getElementById('form-name');
+    const emailInput = document.getElementById('form-email');
+    const messageInput = document.getElementById('form-message');
+    const submitBtn = contactForm ? contactForm.querySelector('button[type="submit"]') : null;
+
+    // Email regex pattern for validation
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+    // Validation state object
+    const formState = {
+        name: false,
+        email: false,
+        message: false
+    };
+
+    // Function to create or get error message element for a field
+    function getOrCreateErrorElement(inputElement) {
+        let errorEl = inputElement.nextElementSibling;
+        if (!errorEl || !errorEl.classList.contains('field-error')) {
+            errorEl = document.createElement('div');
+            errorEl.className = 'field-error';
+            errorEl.style.cssText = 'color: #FF4A5A; font-size: 0.85rem; margin-top: 0.4rem; display: none;';
+            inputElement.parentNode.insertBefore(errorEl, inputElement.nextSibling);
+        }
+        return errorEl;
+    }
+
+    // Function to show/hide error message
+    function setFieldError(inputElement, message) {
+        const errorEl = getOrCreateErrorElement(inputElement);
+        if (message) {
+            errorEl.textContent = message;
+            errorEl.style.display = 'block';
+            inputElement.style.borderColor = '#FF4A5A';
+        } else {
+            errorEl.style.display = 'none';
+            inputElement.style.borderColor = '';
+        }
+    }
+
+    // Validation functions
+    function validateName(name) {
+        if (!name || name.trim().length === 0) {
+            return 'Name is required.';
+        }
+        if (name.trim().length < 2) {
+            return 'Name must be at least 2 characters.';
+        }
+        if (name.length > 100) {
+            return 'Name must not exceed 100 characters.';
+        }
+        return '';
+    }
+
+    function validateEmail(email) {
+        if (!email || email.trim().length === 0) {
+            return 'Email is required.';
+        }
+        if (!emailRegex.test(email)) {
+            return 'Please enter a valid email address (e.g., jane@example.com).';
+        }
+        return '';
+    }
+
+    function validateMessage(message) {
+        if (!message || message.trim().length === 0) {
+            return 'Message is required.';
+        }
+        if (message.trim().length < 10) {
+            return 'Message must be at least 10 characters.';
+        }
+        if (message.length > 5000) {
+            return 'Message must not exceed 5000 characters.';
+        }
+        return '';
+    }
+
+    // Update button disabled state based on form validity
+    function updateSubmitButton() {
+        if (submitBtn) {
+            const isFormValid = formState.name && formState.email && formState.message;
+            submitBtn.disabled = !isFormValid;
+            submitBtn.style.opacity = isFormValid ? '1' : '0.5';
+            submitBtn.style.cursor = isFormValid ? 'pointer' : 'not-allowed';
+        }
+    }
+
+    // Add validation listeners to form inputs
+    if (nameInput) {
+        nameInput.addEventListener('input', (e) => {
+            const error = validateName(e.target.value);
+            formState.name = error === '';
+            setFieldError(nameInput, error);
+            updateSubmitButton();
+        });
+    }
+
+    if (emailInput) {
+        emailInput.addEventListener('input', (e) => {
+            const error = validateEmail(e.target.value);
+            formState.email = error === '';
+            setFieldError(emailInput, error);
+            updateSubmitButton();
+        });
+    }
+
+    if (messageInput) {
+        messageInput.addEventListener('input', (e) => {
+            const error = validateMessage(e.target.value);
+            formState.message = error === '';
+            setFieldError(messageInput, error);
+            updateSubmitButton();
+        });
+    }
+
+    // Initialize button state on page load
+    updateSubmitButton();
+
+    // ==========================================================================
+    // 9. SECURE AJAX FORM SUBMISSION HANDLER
+    // ==========================================================================
     
     if (contactForm && formResponse) {
         contactForm.addEventListener('submit', (e) => {
             e.preventDefault(); // Intercept browser submission
             
             // Change button state
-            const submitBtn = contactForm.querySelector('button[type="submit"]');
             const originalBtnHtml = submitBtn.innerHTML;
             submitBtn.disabled = true;
             submitBtn.innerHTML = `<span>Sending... 🚀</span>`;
@@ -342,6 +433,17 @@ document.addEventListener('DOMContentLoaded', () => {
                 if (data.success) {
                     formResponse.classList.add('success');
                     contactForm.reset(); // clear inputs
+                    // Clear error messages and reset validation state
+                    formState.name = false;
+                    formState.email = false;
+                    formState.message = false;
+                    [nameInput, emailInput, messageInput].forEach(input => {
+                        if (input) {
+                            setFieldError(input, '');
+                            input.style.borderColor = '';
+                        }
+                    });
+                    updateSubmitButton();
                 } else {
                     formResponse.classList.add('error');
                 }
