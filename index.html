@@ -1,0 +1,701 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Zinnia Lopes | UX Designer Portfolio</title>
+    <meta name="description"
+        content="Portfolio of Zinnia Lopes, a second-year UX Designer creating creative, premium, human-centric, and highly interactive digital experiences.">
+    <meta name="keywords"
+        content="Zinnia Lopes, UX Designer, UI Design, Interaction Design, Figma, Portfolio, Web Design, Gen Z aesthetic, Editorial Design">
+
+    <!-- Core Modular CSS Link -->
+    <link rel="stylesheet" href="assets/css/style.css">
+
+    <!-- Lucide Icons Library (Lightweight modern icons) -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+</head>
+
+<body>
+
+    <!-- Playful Floating Background Blobs -->
+    <div class="bg-blobs">
+        <div class="blob blob-1"></div>
+        <div class="blob blob-2"></div>
+        <div class="blob blob-3"></div>
+        <div class="blob blob-4"></div>
+    </div>
+
+    <!-- Trailing Custom Cursor Overlay -->
+    <div class="custom-cursor"></div>
+    <div class="custom-cursor-follower"></div>
+
+    <!-- ==========================================================================
+       NAVIGATION HEADER
+       ========================================================================== -->
+    <header class="header">
+        <div class="nav-container">
+            <a href="#hero" class="logo" id="nav-logo">
+                ✦ Zinnia Lopes
+            </a>
+
+            <!-- Desktop Menu -->
+            <ul class="nav-menu">
+                <li><a href="#hero" class="nav-link active">Home</a></li>
+                <li><a href="#about" class="nav-link">About</a></li>
+                <li><a href="#skills" class="nav-link">Skills</a></li>
+                <li><a href="#projects" class="nav-link">Projects</a></li>
+                <li><a href="#contact" class="nav-link">Contact</a></li>
+            </ul>
+
+            <!-- Mobile Hamburger Menu Button -->
+            <button class="hamburger" aria-label="Toggle Navigation Menu" id="nav-hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+    </header>
+
+    <!-- Mobile Navigation Overlay Drawer -->
+    <nav class="mobile-nav" id="nav-mobile-drawer">
+        <a href="#hero" class="mobile-nav-link">Home</a>
+        <a href="#about" class="mobile-nav-link">About</a>
+        <a href="#skills" class="mobile-nav-link">Skills</a>
+        <a href="#projects" class="mobile-nav-link">Projects</a>
+        <a href="#contact" class="mobile-nav-link">Contact</a>
+    </nav>
+
+    <!-- ==========================================================================
+       1. HERO SECTION
+       ========================================================================== -->
+    <section id="hero" class="hero">
+        <!-- Floating Doodles -->
+        <svg viewBox="0 0 100 100" class="sticker sticker-blob"
+            style="bottom: 12%; left: 8%; fill: var(--clr-mint); animation-delay: 1.5s;">
+            <path
+                d="M30,-40C39.4,-33.5,47.8,-24.6,51.8,-13.7C55.7,-2.8,55.2,10.2,50.7,21.9C46.3,33.7,37.8,44.2,26.9,49.8C15.9,55.4,2.5,56,-10.8,53C-24.1,50,-37.2,43.3,-46.3,32.8C-55.4,22.2,-60.5,7.9,-59.8,-6.1C-59.2,-20.1,-52.8,-33.7,-42.6,-40.5C-32.4,-47.4,-18.4,-47.4,-4.5,-46.9C9.3,-46.3,18.7,-46.6,30,-40Z"
+                transform="translate(50,50)" />
+        </svg>
+
+        <div class="container hero-container">
+            <div class="hero-grid">
+
+                <!-- Left Hand Text Content -->
+                <div class="hero-content">
+                    <div class="hero-tag">
+                        <i data-lucide="sparkles" style="width: 16px; height: 16px; color: var(--clr-poppy);"></i>
+                        Welcome to my creative space
+                    </div>
+
+                    <h1 class="hero-title">
+                        Hi, I'm <span class="highlight">Zinnia Lopes</span><br>
+                        Second-Year UX Designer
+                    </h1>
+
+                    <!-- Dynamic Typewriter Wrapper -->
+                    <div class="typewriter-container">
+                        <span class="typewriter-text"></span><span class="typewriter-cursor"
+                            style="border-right: 2px solid var(--clr-poppy); animation: float 1s infinite;">|</span>
+                    </div>
+
+                    <p class="hero-intro">
+                        I am an experience designer who believes in creating digital products that feel warm, intuitive,
+                        and remarkably human. I blend meticulous user research with vibrant, modern storytelling to
+                        create designs that excite users and empower brands.
+                    </p>
+
+                    <div class="hero-ctas">
+                        <a href="#projects" class="btn btn-primary">
+                            View Projects <i data-lucide="arrow-right" style="width: 18px; height: 18px;"></i>
+                        </a>
+                        <a href="#about" class="btn btn-secondary">About Me</a>
+                        <a href="#contact" class="btn btn-tertiary">Let's Chat</a>
+                    </div>
+                </div>
+
+                <!-- Right Hand Polaroid Tilted Card -->
+                <div class="hero-image-wrapper">
+                    <div class="polaroid-card" id="hero-polaroid">
+                        <div class="polaroid-img-frame">
+                            <img src="assets/images/zinnia-hero.jpg" alt="Zinnia Lopes with Headphones"
+                                class="polaroid-img" loading="lazy">
+                        </div>
+                        <div class="polaroid-caption">🎧 Listening & Designing</div>
+
+                        <!-- Floating cute smiley sticker on polaroid -->
+                        <svg viewBox="0 0 100 100" class="sticker sticker-smiley"
+                            style="bottom: 8px; right: 8px; width: 35px; height: 35px; transform: rotate(15deg);">
+                            <circle cx="50" cy="50" r="45" fill="var(--clr-yellow)" stroke="var(--clr-dark)"
+                                stroke-width="6" />
+                            <circle cx="35" cy="40" r="6" fill="var(--clr-dark)" />
+                            <circle cx="65" cy="40" r="6" fill="var(--clr-dark)" />
+                            <path d="M 30 60 Q 50 80 70 60" stroke="var(--clr-dark)" stroke-width="6" fill="none"
+                                stroke-linecap="round" />
+                        </svg>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <!-- Animated Scroll Down Line Indicator -->
+        <a href="#about" class="hero-scroll-indicator" aria-label="Scroll down to About Section">
+            <span>Scroll Down</span>
+            <div class="scroll-line"></div>
+        </a>
+    </section>
+
+    <!-- ==========================================================================
+       2. ABOUT ME SECTION
+       ========================================================================== */
+    <section id="about" class="section about">
+        <div class="container">
+            <div class="about-grid">
+                
+                <!-- Left Hand Organic Blob-Masked Image -->
+    <div class="about-photo-container">
+        <div class="doodle-border"></div>
+
+        <div class="about-photo-mask">
+            <img src="assets/images/zinnia-about.jpg" alt="Zinnia Lopes Portrait" class="about-img" loading="lazy">
+        </div>
+    </div>
+
+    <!-- Right Hand Story Content -->
+    <div class="about-content">
+        <h2>
+            My Story as a <span class="section-highlight">UX Designer</span>
+        </h2>
+
+        <p class="about-story">
+            My path into UX design is fueled by a profound curiosity about how humans connect with technology. With a
+            foundation built on digital psychology and user behaviour, I specialize in transforming complex,
+            overwhelming workflows into delightful digital journeys.
+        </p>
+        <p class="about-story">
+            I don't believe in boring, templated layouts. I believe in designs that have personality, tell stories,
+            spark joy, and solve real, practical issues. Let's make digital tools expressive!
+        </p>
+
+        <!-- Interactive Chips -->
+        <div class="interest-tag-container">
+            <div class="interest-chip">Interaction Design</div>
+            <div class="interest-chip">User Experience</div>
+            <div class="interest-chip">Psychology</div>
+            <div class="interest-chip">Visual Storytelling</div>
+            <div class="interest-chip">Digital Experiences</div>
+            <div class="interest-chip">Creative Systems</div>
+            <div class="interest-chip">Rapid Prototyping</div>
+        </div>
+
+        <!-- Viewport triggered Stats Grid -->
+        <div class="stats-grid">
+            <div class="stat-card">
+                <div class="stat-num" data-target="15">0+</div>
+                <div class="stat-lbl">Projects Crafted</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-num" data-target="95">0%</div>
+                <div class="stat-lbl">Usability Rating</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-num" data-target="3.5">0+</div>
+                <div class="stat-lbl">Years Design Skill</div>
+            </div>
+        </div>
+    </div>
+
+    </div>
+    </div>
+    </section>
+
+    <!-- ==========================================================================
+       3. SKILLS SECTION
+       ========================================================================== -->
+    <section id="skills" class="section skills"
+        style="background-color: #FFF; border-top: var(--border-main); border-bottom: var(--border-main);">
+        <div class="container">
+
+            <div class="skills-intro">
+                <h2>My UX Toolbelt</h2>
+                <p>Equipped with modern research, interaction methodologies, and standard industry design suites to turn
+                    concepts into verified code.</p>
+            </div>
+
+            <div class="skills-grid">
+
+                <!-- Skill 1: UX Research -->
+                <div class="skill-card">
+                    <div class="skill-icon-wrap" style="color: var(--clr-poppy);">
+                        <i data-lucide="search"></i>
+                    </div>
+                    <h3 class="skill-name">UX Research</h3>
+                    <div class="progress-bar-wrap">
+                        <div class="progress-bar-fill" data-percent="90"></div>
+                    </div>
+                </div>
+
+                <!-- Skill 2: UI Design -->
+                <div class="skill-card">
+                    <div class="skill-icon-wrap" style="color: var(--clr-coral);">
+                        <i data-lucide="palette"></i>
+                    </div>
+                    <h3 class="skill-name">UI Design</h3>
+                    <div class="progress-bar-wrap">
+                        <div class="progress-bar-fill" data-percent="95"></div>
+                    </div>
+                </div>
+
+                <!-- Skill 3: Wireframing -->
+                <div class="skill-card">
+                    <div class="skill-icon-wrap" style="color: var(--clr-pink);">
+                        <i data-lucide="layout"></i>
+                    </div>
+                    <h3 class="skill-name">Wireframing</h3>
+                    <div class="progress-bar-wrap">
+                        <div class="progress-bar-fill" data-percent="85"></div>
+                    </div>
+                </div>
+
+                <!-- Skill 4: Prototyping -->
+                <div class="skill-card">
+                    <div class="skill-icon-wrap" style="color: var(--clr-lavender);">
+                        <i data-lucide="zap"></i>
+                    </div>
+                    <h3 class="skill-name">Prototyping</h3>
+                    <div class="progress-bar-wrap">
+                        <div class="progress-bar-fill" data-percent="92"></div>
+                    </div>
+                </div>
+
+                <!-- Skill 5: User Testing -->
+                <div class="skill-card">
+                    <div class="skill-icon-wrap" style="color: var(--clr-poppy);">
+                        <i data-lucide="users"></i>
+                    </div>
+                    <h3 class="skill-name">User Testing</h3>
+                    <div class="progress-bar-wrap">
+                        <div class="progress-bar-fill" data-percent="88"></div>
+                    </div>
+                </div>
+
+                <!-- Skill 6: Figma -->
+                <div class="skill-card">
+                    <div class="skill-icon-wrap" style="color: var(--clr-coral);">
+                        <i data-lucide="figma"></i>
+                    </div>
+                    <h3 class="skill-name">Figma</h3>
+                    <div class="progress-bar-wrap">
+                        <div class="progress-bar-fill" data-percent="98"></div>
+                    </div>
+                </div>
+
+                <!-- Skill 7: Adobe XD -->
+                <div class="skill-card">
+                    <div class="skill-icon-wrap" style="color: var(--clr-pink);">
+                        <i data-lucide="chrome"></i>
+                    </div>
+                    <h3 class="skill-name">Adobe XD</h3>
+                    <div class="progress-bar-wrap">
+                        <div class="progress-bar-fill" data-percent="80"></div>
+                    </div>
+                </div>
+
+                <!-- Skill 8: Interaction Design -->
+                <div class="skill-card">
+                    <div class="skill-icon-wrap" style="color: var(--clr-lavender);">
+                        <i data-lucide="mouse-pointer"></i>
+                    </div>
+                    <h3 class="skill-name">Interaction</h3>
+                    <div class="progress-bar-wrap">
+                        <div class="progress-bar-fill" data-percent="90"></div>
+                    </div>
+                </div>
+
+                <!-- Skill 9: Visual Design -->
+                <div class="skill-card">
+                    <div class="skill-icon-wrap" style="color: var(--clr-poppy);">
+                        <i data-lucide="pen-tool"></i>
+                    </div>
+                    <h3 class="skill-name">Visual Design</h3>
+                    <div class="progress-bar-wrap">
+                        <div class="progress-bar-fill" data-percent="94"></div>
+                    </div>
+                </div>
+
+                <!-- Skill 10: HTML/CSS -->
+                <div class="skill-card">
+                    <div class="skill-icon-wrap" style="color: var(--clr-coral);">
+                        <i data-lucide="code"></i>
+                    </div>
+                    <h3 class="skill-name">HTML / CSS</h3>
+                    <div class="progress-bar-wrap">
+                        <div class="progress-bar-fill" data-percent="85"></div>
+                    </div>
+                </div>
+
+                <!-- Skill 11: Design Thinking -->
+                <div class="skill-card">
+                    <div class="skill-icon-wrap" style="color: var(--clr-pink);">
+                        <i data-lucide="lightbulb"></i>
+                    </div>
+                    <h3 class="skill-name">Design Thinking</h3>
+                    <div class="progress-bar-wrap">
+                        <div class="progress-bar-fill" data-percent="95"></div>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+    </section>
+
+    <!-- ==========================================================================
+       4. PROJECTS SECTION
+       ========================================================================== -->
+    <section id="projects" class="section projects">
+        <div class="container">
+
+            <div class="projects-header-block">
+                <div>
+                    <h2>Selected Projects</h2>
+                    <p style="margin-top: 0.5rem;">Explore curated case studies showcasing full-cycle UX research,
+                        gorgeous UI, and interactive prototypes.</p>
+                </div>
+
+                <!-- Javascript Category Filter Tabs -->
+                <div class="filter-tabs">
+                    <button class="filter-btn active" data-filter="all">All Projects</button>
+                    <button class="filter-btn" data-filter="ux-research">UX Research</button>
+                    <button class="filter-btn" data-filter="ui-ux">UI/UX Design</button>
+                    <button class="filter-btn" data-filter="interaction">Interaction</button>
+                </div>
+            </div>
+
+            <!-- Asymmetrical Magazine Bento Grid -->
+            <div class="bento-grid">
+
+                <!-- Project 1: FoodieLoop (Wide Card) -->
+                <article class="bento-card card-wide" data-category="ux-research ui-ux">
+                    <div class="project-img-frame">
+                        <div class="project-tag-overlay">Gamified Meal Prep</div>
+                        <!-- Beautiful generative pattern style mockup -->
+                        <div
+                            style="width:100%; height:100%; min-height: 280px; background: var(--grad-primary); display:flex; align-items:center; justify-content:center; color:#FFF; font-family:var(--font-heading); font-size: 2.2rem; font-weight:800;">
+                            🍲 FoodieLoop App
+                        </div>
+                    </div>
+
+                    <div class="project-details">
+                        <div>
+                            <div class="project-meta">
+                                <span class="proj-badge" style="background-color: var(--clr-lavender);">Case
+                                    Study</span>
+                                <span class="proj-badge">Mobile Platform</span>
+                            </div>
+                            <h3 class="project-title">FoodieLoop: Reimagining Student Meal Planning</h3>
+                            <p class="project-desc">
+                                Meal planning for busy university students is often stressful or ignored. FoodieLoop
+                                resolves this via gamified custom recipe boxes, smart budget-scaling vectors, and a
+                                visual swipe gesture to swap grocery list items easily.
+                            </p>
+                            <p
+                                style="font-size: 0.9rem; font-weight: 700; color: var(--clr-poppy); margin-bottom: 1.5rem;">
+                                🎯 Process: Empathy Mapping, Persona Profiling, Mid-Fi Guerilla Testing, Hi-Fi Figma
+                                Prototyping.
+                            </p>
+                        </div>
+
+                        <div class="project-footer">
+                            <div class="project-tools">
+                                <span class="tool-tag">Figma</span>
+                                <span class="tool-tag">Maze</span>
+                                <span class="tool-tag">FigJam</span>
+                            </div>
+                            <a href="#contact" class="project-link">
+                                Request Case Study <i data-lucide="arrow-up-right"
+                                    style="width:18px; height: 18px;"></i>
+                            </a>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Project 2: BloomSpace (Tall Card) -->
+                <article class="bento-card card-tall" data-category="ui-ux interaction">
+                    <div class="project-img-frame" style="background-color: var(--clr-lavender);">
+                        <div class="project-tag-overlay">Mindfulness</div>
+                        <div
+                            style="width:100%; height:100%; min-height: 380px; background: var(--grad-lavender-peach); display:flex; align-items:center; justify-content:center; color:var(--clr-dark); font-family:var(--font-heading); font-size: 1.8rem; font-weight:800; text-align:center; padding: 2rem;">
+                            🌸 BloomSpace
+                        </div>
+                    </div>
+
+                    <div class="project-details">
+                        <div>
+                            <div class="project-meta">
+                                <span class="proj-badge" style="background-color: var(--clr-yellow);">UI System</span>
+                            </div>
+                            <h3 class="project-title">BloomSpace Dashboard</h3>
+                            <p class="project-desc">
+                                A mental wellness sanctuary offering a glassmorphism daily habit planner, calming
+                                ambient sounds visualizer, and custom tracker analytics.
+                            </p>
+                            <p
+                                style="font-size: 0.88rem; font-weight: 700; color: var(--clr-coral); margin-bottom: 1.5rem;">
+                                🎯 Process: Competitor Benchmarking, Serene Color Theory, Motion Curves, User Testing.
+                            </p>
+                        </div>
+
+                        <div class="project-footer">
+                            <div class="project-tools">
+                                <span class="tool-tag">Figma</span>
+                                <span class="tool-tag">After Effects</span>
+                            </div>
+                            <a href="#contact" class="project-link">
+                                Request Case Study <i data-lucide="arrow-up-right"
+                                    style="width:18px; height: 18px;"></i>
+                            </a>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Project 3: TravelSip (Half Card) -->
+                <article class="bento-card card-half" data-category="interaction ux-research">
+                    <div class="project-img-frame" style="background-color: var(--clr-mint);">
+                        <div class="project-tag-overlay">Interactive Maps</div>
+                        <div
+                            style="width:100%; height:100%; min-height: 240px; background: var(--grad-sunset); display:flex; align-items:center; justify-content:center; color:#FFF; font-family:var(--font-heading); font-size: 1.8rem; font-weight:800;">
+                            ☕ TravelSip Cafes
+                        </div>
+                    </div>
+
+                    <div class="project-details">
+                        <div>
+                            <div class="project-meta">
+                                <span class="proj-badge" style="background-color: var(--clr-mint);">Interaction
+                                    Concept</span>
+                            </div>
+                            <h3 class="project-title">TravelSip: local cafe visual itineraries</h3>
+                            <p class="project-desc">
+                                A gesture-based design that helps digital nomads map coffee shop work spaces with
+                                verified Wi-Fi data rates and active power outlet indicators.
+                            </p>
+                            <p
+                                style="font-size: 0.88rem; font-weight: 700; color: var(--clr-poppy); margin-bottom: 1.5rem;">
+                                🎯 Process: Interactive Map API Storyboarding, Hand-gesturing motion mockups.
+                            </p>
+                        </div>
+
+                        <div class="project-footer">
+                            <div class="project-tools">
+                                <span class="tool-tag">Figma</span>
+                                <span class="tool-tag">Spline 3D</span>
+                            </div>
+                            <a href="#contact" class="project-link">
+                                Request Case Study <i data-lucide="arrow-up-right"
+                                    style="width:18px; height: 18px;"></i>
+                            </a>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Project 4: Bloom Design System (Half Card) -->
+                <article class="bento-card card-half" data-category="ui-ux">
+                    <div class="project-img-frame" style="background-color: var(--clr-yellow);">
+                        <div class="project-tag-overlay">UI Kit</div>
+                        <div
+                            style="width:100%; height:100%; min-height: 240px; background: var(--grad-pink-yellow); display:flex; align-items:center; justify-content:center; color:var(--clr-dark); font-family:var(--font-heading); font-size: 1.8rem; font-weight:800;">
+                            🎨 Bloom UI Token System
+                        </div>
+                    </div>
+
+                    <div class="project-details">
+                        <div>
+                            <div class="project-meta">
+                                <span class="proj-badge" style="background-color: var(--clr-lavender);">Design
+                                    System</span>
+                            </div>
+                            <h3 class="project-title">Bloom UI Token System</h3>
+                            <p class="project-desc">
+                                Creating a scalable, multi-brand library of components featuring beautiful accessible
+                                contrast colors, modular icons, and kinetic motion tokens.
+                            </p>
+                            <p
+                                style="font-size: 0.88rem; font-weight: 700; color: var(--clr-coral); margin-bottom: 1.5rem;">
+                                🎯 Process: Atomic Design standards, Web Content Accessibility Guidelines (WCAG) checks.
+                            </p>
+                        </div>
+
+                        <div class="project-footer">
+                            <div class="project-tools">
+                                <span class="tool-tag">Figma</span>
+                                <span class="tool-tag">Tokens Studio</span>
+                            </div>
+                            <a href="#contact" class="project-link">
+                                Request Case Study <i data-lucide="arrow-up-right"
+                                    style="width:18px; height: 18px;"></i>
+                            </a>
+                        </div>
+                    </div>
+                </article>
+
+            </div>
+
+        </div>
+    </section>
+
+
+
+    <section id="contact" class="section contact">
+
+        <div class="container">
+            <div class="contact-grid">
+
+                <!-- Left Hand Details Column -->
+                <div class="contact-info">
+                    <h2>Let's Make Something <span class="highlight">Unforgettable!</span></h2>
+                    <p class="contact-text">
+                        Are you looking to hire a passionate, detail-obsessed UX designer for an internship, contract
+                        role, or collaboration? Or maybe just want to talk design aesthetics and digital psychology?
+                        Drop me a message!
+                    </p>
+
+                    <div class="contact-channels">
+
+                        <!-- Email Card -->
+                        <div class="channel-card">
+                            <div class="channel-icon">
+                                <i data-lucide="mail"></i>
+                            </div>
+                            <div>
+                                <div class="channel-label">Send an email</div>
+                                <div class="channel-value"><a
+                                        href="mailto:zinnia.lopes.ux@gmail.com">zinnia.lopes.ux@gmail.com</a></div>
+                            </div>
+                        </div>
+
+                        <!-- Location Card -->
+                        <div class="channel-card">
+                            <div class="channel-icon">
+                                <i data-lucide="map-pin"></i>
+                            </div>
+                            <div>
+                                <div class="channel-label">Based in</div>
+                                <div class="channel-value">Seattle, WA (Open to Relocation)</div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+                <!-- Right Hand Glassmorphic Form -->
+                <div class="contact-form-wrap">
+                    <form class="contact-form" autocomplete="off" id="contact-portfolio-form">
+                        <h3
+                            style="margin-bottom: 2rem; border-bottom: 2px dashed rgba(var(--clr-dark-rgb), 0.15); padding-bottom: 1rem;">
+                            📬 Drop a digital note!
+                        </h3>
+
+                        <!-- Name Field -->
+                        <div class="form-group">
+                            <label for="form-name" class="form-label">Your Name</label>
+                            <input type="text" id="form-name" name="name" class="form-control" placeholder="Jane Doe"
+                                required minlength="2" maxlength="100">
+                        </div>
+
+                        <!-- Email Field -->
+                        <div class="form-group">
+                            <label for="form-email" class="form-label">Email Address</label>
+                            <input type="email" id="form-email" name="email" class="form-control"
+                                placeholder="jane@example.com" required>
+                        </div>
+
+                        <!-- Message Field -->
+                        <div class="form-group">
+                            <label for="form-message" class="form-label">Your Message</label>
+                            <textarea id="form-message" name="message" class="form-control"
+                                placeholder="Hey Zinnia! I'd love to chat about a new mobile app layout we're wireframing..."
+                                required minlength="10" maxlength="5000"></textarea>
+                        </div>
+
+                        <!-- CTA button -->
+                        <button type="submit" class="btn btn-primary" style="width: 100%; padding: 1rem;">
+                            Send Message &nbsp; <i data-lucide="send" style="width: 18px; height: 18px;"></i>
+                        </button>
+
+                        <!-- Form Response Alerts container -->
+                        <div class="form-response"></div>
+                    </form>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- ==========================================================================
+       8. FOOTER WITH MARQUEE
+       ========================================================================== -->
+    <footer class="footer">
+
+        <!-- Infinite Scrolling Marquee Text Band -->
+        <div class="marquee-container">
+            <div class="marquee-content">
+                <span class="marquee-text">
+                    Zinnia Lopes ✦ UX Designer <span class="marquee-divider">✦</span>
+                    Collaborate & Create <span class="marquee-divider">✦</span>
+                    Digital Experiences <span class="marquee-divider">✦</span>
+                    Available for Work <span class="marquee-divider">✦</span>
+                    Zinnia Lopes ✦ UX Designer <span class="marquee-divider">✦</span>
+                    Collaborate & Create <span class="marquee-divider">✦</span>
+                    Digital Experiences <span class="marquee-divider">✦</span>
+                    Available for Work <span class="marquee-divider">✦</span>
+                </span>
+            </div>
+        </div>
+
+        <div class="container">
+            <div class="footer-content">
+
+                <div class="footer-logo">
+                    ✦ Zinnia Lopes
+                </div>
+
+                <!-- Social media connections -->
+                <div class="footer-socials">
+                    <a href="https://linkedin.com" class="social-badge" aria-label="LinkedIn Profile" target="_blank"
+                        rel="noopener">
+                        <i data-lucide="linkedin"></i>
+                    </a>
+                    <a href="https://github.com" class="social-badge" aria-label="GitHub Profile" target="_blank"
+                        rel="noopener">
+                        <i data-lucide="github"></i>
+                    </a>
+                    <a href="https://dribbble.com" class="social-badge" aria-label="Dribbble Designs" target="_blank"
+                        rel="noopener">
+                        <i data-lucide="dribbble"></i>
+                    </a>
+                    <a href="mailto:zinnia.lopes.ux@gmail.com" class="social-badge" aria-label="Send Email">
+                        <i data-lucide="mail"></i>
+                    </a>
+                </div>
+
+            </div>
+
+            <div class="footer-bottom">
+                <p>&copy; 2026 Zinnia Lopes. Handcrafted with design empathy, HTML, CSS, JavaScript, and PHP.</p>
+                <p>Made with love & design empathy ✦</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Main Client Interactive Logic -->
+    <script src="assets/js/main.js"></script>
+    <script>
+        // Initialize Lucide Icons for HTML elements dynamically loaded
+        lucide.createIcons();
+    </script>
+</body>
+
+</html>
